@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixikDev - Разработчик</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(-45deg, #3a5cd8, #6a11cb, #2575fc, #4a6cf7);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            border: 3px solid white;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ffdd40;
+        }
+        
+        .bio {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .skill {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+        
+        .skill i {
+            color: #ffdd40;
+        }
+        
+        .projects {
+            margin-bottom: 40px;
+        }
+        
+        .project {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4a6cf7;
+            transition: all 0.3s ease;
+        }
+        
+        .project:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+        
+        .project h3 {
+            color: #ffdd40;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .project p {
+            line-height: 1.6;
+        }
+        
+        .contact {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .phone {
+            font-size: 1.3rem;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .phone a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .phone a:hover {
+            color: #ffdd40;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .bio {
+                padding: 0 10px;
+            }
+            
+            .skills {
+                gap: 10px;
+            }
+            
+            .skill {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .phone {
+                font-size: 1.1rem;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="avatar">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1>PixikDev</h1>
+            <p class="tagline">Разработчик сайтов, Telegram и Discord ботов</p>
+        </header>
+        
+        <section class="bio">
+            <p>Создаю функциональные и удобные решения. Делаю сайты, Telegram и Discord ботов. Работаю качественно и в срок.</p>
+        </section>
+        
+        <section class="skills">
+            <div class="skill">
+                <i class="fas fa-globe"></i>
+                <span>Сайты</span>
+            </div>
+            <div class="skill">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram боты</span>
+            </div>
+            <div class="skill">
+                <i class="fab fa-discord"></i>
+                <span>Discord боты</span>
+            </div>
+            <div class="skill">
+                <i class="fas fa-database"></i>
+                <span>Базы данных</span>
+            </div>
+            <div class="skill">
+                <i class="fas fa-server"></i>
+                <span>Backend</span>
+            </div>
+        </section>
+        
+        <section class="projects">
+            <h2 class="section-title">Мои проекты</h2>
+            
+            <div class="project">
+                <h3>Telegram бот для заказов</h3>
+                <p>Бот с системой заказов и оплаты для Telegram.</p>
+            </div>
+            
+            <div class="project">
+                <h3>Discord бот для модерации</h3>
+                <p>Бот с функциями модерации и развлечений для Discord серверов.</p>
+            </div>
+            
+            <div class="project">
+                <h3>Веб-сайт для бизнеса</h3>
+                <p>Корпоративный сайт с современным дизайном и адаптивной версткой.</p>
+            </div>
+        </section>
+        
+        <section class="contact">
+            <h2 class="section-title">Свяжитесь со мной</h2>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2025 PixikDev</p>
+        </footer>
+    </div>
+</body>
+</html>
