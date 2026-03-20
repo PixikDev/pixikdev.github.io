@@ -1,304 +1,607 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixikDev - Разработчик</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(-45deg, #3a5cd8, #6a11cb, #2575fc, #4a6cf7);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: white;
-            line-height: 1.6;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 15px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        header {
-            text-align: center;
-            padding: 20px 0;
-            margin-bottom: 20px;
-        }
-        
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            background: rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            border: 3px solid white;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #ffdd40;
-        }
-        
-        .bio {
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            padding: 0 20px;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 2rem;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .skill {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 12px 20px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .skill:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-        }
-        
-        .skill i {
-            color: #ffdd40;
-        }
-        
-        .projects {
-            margin-bottom: 40px;
-        }
-        
-        .project {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 4px solid #4a6cf7;
-            transition: all 0.3s ease;
-        }
-        
-        .project:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateX(5px);
-        }
-        
-        .project h3 {
-            color: #ffdd40;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-        
-        .project p {
-            line-height: 1.6;
-        }
-        
-        .contact {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .phone {
-            font-size: 1.3rem;
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .phone a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .phone a:hover {
-            color: #ffdd40;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-5px);
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 20px;
-            }
-            
-            .bio {
-                padding: 0 10px;
-            }
-            
-            .skills {
-                gap: 10px;
-            }
-            
-            .skill {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
-            
-            .phone {
-                font-size: 1.1rem;
-                flex-direction: column;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Татарстан | Многонациональная мозаика</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #050a12;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .wrapper {
+      max-width: 1400px;
+      width: 100%;
+      background: rgba(6, 12, 20, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 3rem;
+      padding: 1.8rem 2rem;
+      border: 1px solid rgba(255, 160, 60, 0.7);
+      box-shadow: 0 30px 45px rgba(0, 0, 0, 0.7), 0 0 0 2px #ffa03c inset, 0 0 30px rgba(255, 140, 0, 0.5);
+      z-index: 10;
+      transition: all 0.2s;
+    }
+
+    .header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffdbb0, #ffaa44, #ff7a1a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 12px #ff9f3a;
+      letter-spacing: -0.01em;
+    }
+
+    .badge {
+      background: #1f1c14;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ffbe6e;
+      border: 2px solid #ffaa44;
+      box-shadow: 0 0 15px #ff8c1a;
+      backdrop-filter: blur(4px);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .badge:active {
+      transform: scale(0.97);
+    }
+
+    .globe-section {
+      position: relative;
+      width: 100%;
+      height: 460px;
+      border-radius: 50px;
+      overflow: hidden;
+      border: 2px solid #ffaa44;
+      box-shadow: 0 0 28px #ffa033, inset 0 0 15px rgba(255, 160, 0, 0.4);
+      background: #01050c;
+      margin-bottom: 2rem;
+    }
+
+    #globeCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    #leafletMap {
+      width: 100%;
+      height: 100%;
+      display: none;
+      background: #1a2a2f;
+    }
+
+    .globe-section.show-map #globeCanvas {
+      display: none;
+    }
+
+    .globe-section.show-map #leafletMap {
+      display: block;
+    }
+
+    .city-panel {
+      margin: 1.8rem 0 1.5rem;
+    }
+
+    .city-panel h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffbc6a;
+      text-shadow: 0 0 8px #f90;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+
+    .city-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      justify-content: center;
+    }
+
+    .city-btn {
+      background: #1f1c16;
+      border: none;
+      border-radius: 60px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #ffcf8c;
+      border: 2px solid #ffaa44;
+      box-shadow: 0 3px 0 #633d0e, 0 0 12px #f90;
+      cursor: pointer;
+      transition: 0.07s linear;
+      transform: translateY(0);
+    }
+
+    .city-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #633d0e;
+    }
+
+    .city-btn:hover {
+      background: #2f281d;
+      border-color: #ffc46b;
+    }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .card {
+      background: rgba(14, 22, 32, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 1.6rem 1.4rem;
+      border: 2px solid rgba(255, 170, 70, 0.7);
+      box-shadow: 0 18px 28px -12px black, inset 0 0 0 2px #ffaa44, 0 0 22px #ff881a;
+      transition: 0.2s;
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ffbc6e;
+      text-shadow: 0 0 6px #ffa135;
+      margin-bottom: 1rem;
+      border-bottom: 2px dashed #ffaa44;
+      padding-bottom: 0.5rem;
+    }
+
+    .stat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .stat-item {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 2rem;
+      padding: 0.6rem 1rem;
+      border: 1px solid #ffaa55;
+      box-shadow: 0 0 8px #ff9f2e;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ffcc88;
+      letter-spacing: 1px;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff3e0;
+      line-height: 1.2;
+      text-shadow: 0 0 5px #ffae42;
+    }
+
+    .stat-note {
+      font-size: 0.85rem;
+      color: #ffbb70;
+    }
+
+    .history-block {
+      margin-top: 1rem;
+      background: #121a24c9;
+      padding: 0.9rem;
+      border-radius: 1.5rem;
+      border-left: 6px solid #ffaa44;
+      color: #ffe6bf;
+      font-size: 0.9rem;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background: #2b231b;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ffd9a5;
+      border: 1px solid #ffaa55;
+      box-shadow: 0 0 8px #f90;
+    }
+
+    .footnote {
+      background: #0a111ccc;
+      border-radius: 1.8rem;
+      padding: 1.2rem 1.6rem;
+      margin-top: 2rem;
+      border: 2px solid #ffaa55;
+      box-shadow: 0 0 18px #ffaa44;
+      color: #ffddb0;
+    }
+
+    .footnote-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-weight: 500;
+      justify-content: space-between;
+    }
+
+    .footnote a {
+      color: #ffce8c;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid #ffaa44;
+    }
+
+    details {
+      margin-top: 1rem;
+    }
+
+    summary {
+      background: #1f1b14;
+      padding: 0.4rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 700;
+      display: inline-block;
+      border: 2px solid #ffaa55;
+      cursor: pointer;
+      color: #ffcd8a;
+      font-size: 0.9rem;
+    }
+
+    .author-box {
+      background: #121c24;
+      padding: 1rem;
+      border-radius: 1.5rem;
+      margin-top: 0.8rem;
+      border: 1px solid #ffaa55;
+    }
+
+    hr {
+      border: 1px solid #ffaa55;
+      margin: 1rem 0;
+      box-shadow: 0 0 5px #f90;
+    }
+
+    @media (max-width: 880px) {
+      .cards-row {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .wrapper {
+        padding: 1.2rem;
+      }
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      .globe-section {
+        height: 340px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="avatar">
-                <i class="fas fa-code"></i>
-            </div>
-            <h1>PixikDev</h1>
-            <p class="tagline">Разработчик сайтов, Telegram и Discord ботов</p>
-        </header>
-        
-        <section class="bio">
-            <p>Создаю функциональные и удобные решения. Делаю сайты, Telegram и Discord ботов. Работаю качественно и в срок.</p>
-        </section>
-        
-        <section class="skills">
-            <div class="skill">
-                <i class="fas fa-globe"></i>
-                <span>Сайты</span>
-            </div>
-            <div class="skill">
-                <i class="fab fa-telegram"></i>
-                <span>Telegram боты</span>
-            </div>
-            <div class="skill">
-                <i class="fab fa-discord"></i>
-                <span>Discord боты</span>
-            </div>
-            <div class="skill">
-                <i class="fas fa-database"></i>
-                <span>Базы данных</span>
-            </div>
-            <div class="skill">
-                <i class="fas fa-server"></i>
-                <span>Backend</span>
-            </div>
-        </section>
-        
-        <section class="projects">
-            <h2 class="section-title">Мои проекты</h2>
-            
-            <div class="project">
-                <h3>Telegram бот для заказов</h3>
-                <p>Бот с системой заказов и оплаты для Telegram.</p>
-            </div>
-            
-            <div class="project">
-                <h3>Discord бот для модерации</h3>
-                <p>Бот с функциями модерации и развлечений для Discord серверов.</p>
-            </div>
-            
-            <div class="project">
-                <h3>Веб-сайт для бизнеса</h3>
-                <p>Корпоративный сайт с современным дизайном и адаптивной версткой.</p>
-            </div>
-        </section>
-        
-        <section class="contact">
-            <h2 class="section-title">Свяжитесь со мной</h2>
-            
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-            </div>
-        </section>
-        
-        <footer>
-            <p>&copy; 2025 PixikDev</p>
-        </footer>
+
+<canvas class="particle-canvas" id="particleCanvas"></canvas>
+
+<div class="wrapper">
+  <div class="header">
+    <h1>ТАТАРСТАН | 15 ГОРОДОВ</h1>
+    <div class="badge" id="switchMapHint">| нажми на глобус → карта |</div>
+  </div>
+
+  <div class="globe-section" id="globeSection">
+    <canvas id="globeCanvas"></canvas>
+    <div id="leafletMap"></div>
+  </div>
+
+  <div class="city-panel">
+    <h2>| 15 КЛЮЧЕВЫХ ГОРОДОВ |</h2>
+    <div class="city-buttons" id="cityButtons"></div>
+  </div>
+
+  <div class="cards-row">
+    <div class="card">
+      <h3>РЕСПУБЛИКА</h3>
+      <div class="stat-list">
+        <div class="stat-item"><span class="stat-label">ПЛОЩАДЬ</span><div class="stat-value">67 847 км²</div></div>
+        <div class="stat-item"><span class="stat-label">НАСЕЛЕНИЕ</span><div class="stat-value">4 019 606</div><div class="stat-note">2025</div></div>
+        <div class="stat-item"><span class="stat-label">СТОЛИЦА</span><div class="stat-value">Казань</div></div>
+        <div class="stat-item"><span class="stat-label">ВРП</span><div class="stat-value">4,58 трлн ₽</div><div class="stat-note">2023</div></div>
+      </div>
+      <div class="history-block">30 августа 1990 — Декларация о суверенитете. Раис — Рустам Минниханов. Гос. языки: татарский, русский.</div>
+      <div class="tag-group"><span class="tag">нефть</span><span class="tag">химия</span><span class="tag">КАМАЗ</span><span class="tag">туризм</span></div>
     </div>
+
+    <div class="card">
+      <h3>175 НАРОДОВ</h3>
+      <ul style="list-style:none; font-size:1rem; font-weight:600; color:#ffdfb5; line-height:1.4;">
+        <li>▪ татары — 53% (2,09 млн)</li>
+        <li>▪ русские — 39% (1,57 млн)</li>
+        <li>▪ чуваши — 90,4 тыс.</li>
+        <li>▪ удмурты, марийцы, башкиры, мордва, кряшены</li>
+      </ul>
+      <div class="tag-group"><span class="tag">татарский</span><span class="tag">русский</span><span class="tag">кряшенский</span><span class="tag">удмуртский</span></div>
+      <div class="history-block">Сабантуй · Питрау · Уяв · Гырон Быдтон · Фестиваль «Мозаика культур»</div>
+    </div>
+
+    <div class="card" id="cityCard">
+      <h3 id="cityName">НИЖНЕКАМСК</h3>
+      <div id="cityContent"></div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <div class="footnote-row">
+      <span>| данные: перепись, Википедия, открытые источники |</span>
+      <span><a href="https://ru.wikipedia.org/wiki/Нижнекамск" target="_blank">Нижнекамск</a></span>
+      <span><a href="https://ru.wikipedia.org/wiki/Татарстан" target="_blank">Татарстан</a></span>
+    </div>
+    <details>
+      <summary>Об авторе</summary>
+      <div class="author-box">
+        <p><strong>Автор:</strong> Pixik (Ильназ) · интерактивная платформа</p>
+        <p>Three.js глобус · Leaflet карта · частицы · данные о 15 городах</p>
+      </div>
+    </details>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const cities = [
+      { name:"Казань", lat:55.796, lng:49.106, founded:"1005", pop:"1 314 000", desc:"Национальный состав: татары 48,8%, русские 46,9%, чуваши 0,8%, украинцы 0,4%, марийцы 0,3%, другие народы.", feature:"Метрополитен, Кремль, 5 млн туристов", tag:"столица" },
+      { name:"Наб. Челны", lat:55.6848, lng:52.3245, founded:"1626", pop:"548 000", desc:"Национальный состав: татары 48,8%, русские 46,2%, чуваши 1,1%, украинцы 0,8%, башкиры 0,5%, другие.", feature:"КАМАЗ, новый город", tag:"промышленность" },
+      { name:"Нижнекамск", lat:55.6388, lng:51.8244, founded:"1961", pop:"241 000", desc:"Национальный состав: татары 52,3%, русские 42,6%, чуваши 1,4%, башкиры 0,5%, украинцы 0,4%, другие.", feature:"Нижнекамскнефтехим, ТАНЕКО", tag:"ТОСЭР" },
+      { name:"Альметьевск", lat:54.9004, lng:52.3153, founded:"1720", pop:"163 000", desc:"Национальный состав: татары 52,2%, русские 30,8%, чуваши 3,1%, мордва 2,2%, украинцы 0,7%, другие.", feature:"Татнефть, Ромашкино", tag:"нефть" },
+      { name:"Зеленодольск", lat:55.8453, lng:48.5125, founded:"1865", pop:"100 000", desc:"Национальный состав: татары 51,6%, русские 44,0%, чуваши 1,5%, марийцы 0,6%, украинцы 0,5%, другие.", feature:"машиностроение, Зеленодольский завод", tag:"судостроение" },
+      { name:"Бугульма", lat:54.5364, lng:52.7895, founded:"1736", pop:"81 000", desc:"Национальный состав: татары 45,9%, русские 47,2%, чуваши 2,3%, мордва 1,4%, украинцы 0,7%, другие.", feature:"Татнефть, аэропорт", tag:"нефть" },
+      { name:"Елабуга", lat:55.7568, lng:52.0548, founded:"1007", pop:"74 000", desc:"Национальный состав: татары 49,6%, русские 45,1%, чуваши 1,8%, удмурты 0,8%, марийцы 0,7%, другие.", feature:"ОЭЗ, Чёртово городище", tag:"история" },
+      { name:"Лениногорск", lat:54.5967, lng:52.4605, founded:"1795", pop:"62 000", desc:"Национальный состав: татары 51,0%, русские 42,5%, чуваши 2,7%, мордва 1,3%, украинцы 0,5%, другие.", feature:"ТНГ-Групп", tag:"нефтяники" },
+      { name:"Чистополь", lat:55.3694, lng:50.6287, founded:"1781", pop:"58 000", desc:"Национальный состав: татары 46,2%, русские 49,8%, чуваши 1,3%, мордва 0,7%, украинцы 0,4%, другие.", feature:"часовой завод, Пастернак", tag:"культура" },
+      { name:"Заинск", lat:55.3031, lng:52.0047, founded:"1652", pop:"39 000", desc:"Национальный состав: татары 53,1%, русские 42,1%, чуваши 1,6%, украинцы 0,4%, другие народы.", feature:"энергетика", tag:"энергетика" },
+      { name:"Азнакаево", lat:54.8573, lng:53.0679, founded:"1762", pop:"34 000", desc:"Национальный состав: татары 60,4%, русские 35,2%, чуваши 1,5%, башкиры 0,9%, другие.", feature:"Азнакаевский горизонт", tag:"нефть" },
+      { name:"Нурлат", lat:54.4278, lng:50.8056, founded:"1905", pop:"33 000", desc:"Национальный состав: татары 52,7%, русские 41,8%, чуваши 2,1%, мордва 1,0%, украинцы 0,3%, другие.", feature:"Нурлатский сахар", tag:"аграрный" },
+      { name:"Менделеевск", lat:55.8908, lng:52.3144, founded:"1868", pop:"22 000", desc:"Национальный состав: татары 48,3%, русские 47,1%, чуваши 1,5%, удмурты 0,9%, марийцы 0,5%, другие.", feature:"химия", tag:"химия" },
+      { name:"Мензелинск", lat:55.7244, lng:53.1003, founded:"1584", pop:"16 000", desc:"Национальный состав: татары 60,1%, русские 35,6%, чуваши 1,2%, марийцы 0,8%, другие народы.", feature:"Мензелинский аэроклуб", tag:"история" },
+      { name:"Тетюши", lat:54.9388, lng:48.8288, founded:"1578", pop:"10 000", desc:"Национальный состав: татары 58,3%, русские 38,1%, чуваши 1,5%, мордва 0,7%, другие.", feature:"туризм, рыболовство", tag:"туризм" }
+    ];
+
+    const canvasGlobe = document.getElementById('globeCanvas');
+    const sectionGlobe = document.getElementById('globeSection');
+    const mapContainer = document.getElementById('leafletMap');
+    
+    let scene, camera, renderer, earth, stars;
+    let widthGlobe = canvasGlobe.clientWidth;
+    let heightGlobe = canvasGlobe.clientHeight;
+    
+    function initThree() {
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x030a12);
+      camera = new THREE.PerspectiveCamera(45, widthGlobe / heightGlobe, 0.1, 1000);
+      camera.position.set(0, 0, 3.6);
+      renderer = new THREE.WebGLRenderer({ canvas: canvasGlobe, antialias: true });
+      renderer.setSize(widthGlobe, heightGlobe);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      
+      const textureLoader = new THREE.TextureLoader();
+      const earthMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
+      const earthMat = new THREE.MeshPhongMaterial({ map: earthMap, shininess: 8, emissive: new THREE.Color(0x112233) });
+      const earthGeo = new THREE.SphereGeometry(1.45, 128, 128);
+      earth = new THREE.Mesh(earthGeo, earthMat);
+      scene.add(earth);
+      
+      const starsGeo = new THREE.BufferGeometry();
+      const starsCount = 2200;
+      const starsPos = new Float32Array(starsCount * 3);
+      for (let i = 0; i < starsCount * 3; i += 3) {
+        starsPos[i] = (Math.random() - 0.5) * 400;
+        starsPos[i+1] = (Math.random() - 0.5) * 200;
+        starsPos[i+2] = (Math.random() - 0.5) * 150 - 50;
+      }
+      starsGeo.setAttribute('position', new THREE.BufferAttribute(starsPos, 3));
+      const starsMat = new THREE.PointsMaterial({ color: 0xffdd99, size: 0.2 });
+      stars = new THREE.Points(starsGeo, starsMat);
+      scene.add(stars);
+      
+      const lightMain = new THREE.PointLight(0xffaa66, 1.8);
+      lightMain.position.set(4, 3, 5);
+      scene.add(lightMain);
+      const ambientLight = new THREE.AmbientLight(0x334455);
+      scene.add(ambientLight);
+      const backLight = new THREE.DirectionalLight(0x886633, 0.7);
+      backLight.position.set(-2, 1, -3);
+      scene.add(backLight);
+      
+      function animate() {
+        requestAnimationFrame(animate);
+        if (earth) earth.rotation.y += 0.0022;
+        if (stars) stars.rotation.y += 0.0003;
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+    
+    function resizeGlobe() {
+      const w = canvasGlobe.clientWidth;
+      const h = canvasGlobe.clientHeight;
+      if (renderer) {
+        renderer.setSize(w, h);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+    }
+    
+    let leafletMap = null;
+    let mapInitialized = false;
+    
+    function initLeafletMap() {
+      if (leafletMap) return;
+      leafletMap = L.map('leafletMap').setView([55.2, 51.5], 7.2);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> | CartoDB',
+        subdomains: 'abcd'
+      }).addTo(leafletMap);
+      
+      cities.forEach(city => {
+        if (city.lat && city.lng) {
+          const popupText = `<b>${city.name}</b><br>Население: ${city.pop}<br>${city.feature}`;
+          L.marker([city.lat, city.lng]).addTo(leafletMap).bindPopup(popupText);
+        }
+      });
+    }
+    
+    canvasGlobe.addEventListener('click', () => {
+      sectionGlobe.classList.add('show-map');
+      if (!mapInitialized) {
+        initLeafletMap();
+        mapInitialized = true;
+      } else {
+        if (leafletMap) leafletMap.invalidateSize();
+      }
+    });
+    
+    mapContainer.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      sectionGlobe.classList.remove('show-map');
+    });
+    
+    const cityButtonsDiv = document.getElementById('cityButtons');
+    const cityNameSpan = document.getElementById('cityName');
+    const cityContentDiv = document.getElementById('cityContent');
+    
+    function renderCityCard(city) {
+      cityNameSpan.innerText = city.name.toUpperCase();
+      cityContentDiv.innerHTML = `
+        <div class="stat-list">
+          <div class="stat-item"><span class="stat-label">основан</span><div class="stat-value">${city.founded}</div></div>
+          <div class="stat-item"><span class="stat-label">население</span><div class="stat-value">${city.pop}</div></div>
+          <div class="stat-item"><span class="stat-label">особенность</span><div class="stat-value">${city.feature}</div></div>
+        </div>
+        <div class="history-block">${city.desc}</div>
+        <div class="tag-group"><span class="tag">${city.tag}</span><span class="tag">Татарстан</span></div>
+      `;
+    }
+    
+    cities.forEach(city => {
+      const btn = document.createElement('button');
+      btn.className = 'city-btn';
+      btn.textContent = city.name;
+      btn.addEventListener('click', () => renderCityCard(city));
+      cityButtonsDiv.appendChild(btn);
+    });
+    renderCityCard(cities[2]);
+    
+    const particleCanvas = document.getElementById('particleCanvas');
+    let ctxParticle = particleCanvas.getContext('2d');
+    let particles = [];
+    let winW = window.innerWidth, winH = window.innerHeight;
+    
+    function initParticles() {
+      winW = window.innerWidth;
+      winH = window.innerHeight;
+      particleCanvas.width = winW;
+      particleCanvas.height = winH;
+      const pCount = 170;
+      particles = [];
+      for (let i = 0; i < pCount; i++) {
+        particles.push({
+          x: Math.random() * winW,
+          y: Math.random() * winH,
+          rad: Math.random() * 2.3 + 0.8,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.35,
+          color: `rgba(255, ${140 + Math.random() * 90}, 50, ${0.3 + Math.random() * 0.5})`
+        });
+      }
+    }
+    
+    function drawParticles() {
+      if (!ctxParticle) return;
+      ctxParticle.clearRect(0, 0, winW, winH);
+      for (let p of particles) {
+        ctxParticle.beginPath();
+        ctxParticle.arc(p.x, p.y, p.rad, 0, Math.PI * 2);
+        ctxParticle.fillStyle = p.color;
+        ctxParticle.shadowBlur = 12;
+        ctxParticle.shadowColor = '#ffaa44';
+        ctxParticle.fill();
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -20) p.x = winW + 20;
+        if (p.x > winW + 20) p.x = -20;
+        if (p.y < -20) p.y = winH + 20;
+        if (p.y > winH + 20) p.y = -20;
+      }
+      requestAnimationFrame(drawParticles);
+    }
+    
+    window.addEventListener('resize', () => {
+      resizeGlobe();
+      if (leafletMap) leafletMap.invalidateSize();
+      initParticles();
+      winW = window.innerWidth;
+      winH = window.innerHeight;
+      particleCanvas.width = winW;
+      particleCanvas.height = winH;
+    });
+    
+    initThree();
+    initParticles();
+    drawParticles();
+    
+    setTimeout(() => {
+      resizeGlobe();
+      if (leafletMap) leafletMap.invalidateSize();
+    }, 200);
+  })();
+</script>
 </body>
 </html>
